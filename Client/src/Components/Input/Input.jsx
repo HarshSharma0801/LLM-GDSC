@@ -1,23 +1,28 @@
-import React, { useState } from 'react';
-
+import React, { useState , useContext } from 'react';
+import axios from 'axios'
+import { QuestionContext } from '../Context/answersContext';
+import Loader from '../LoaderComp';
 var questions = {
   "question" : []
 }
 
-console.log("runs");
 
-const Input = ({hideDisplay}) => {
 
+const Input = (props) => {
+const {makeAnswers} = useContext(QuestionContext)
   const [data, setData] = useState(null);
   const [question, setQuestion] = useState('');
-
+  const [isQuestion , setIsQuestion ] = useState(false)
   const handleChange = (event) => {
+    console.log("jij")
     setQuestion(event.target.value);
   };
 
+
+
   const handleSubmit = (event) => {
+    setIsQuestion(true)
     event.preventDefault();
-    hideDisplay()
     const xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://ec2-44-201-124-80.compute-1.amazonaws.com:8000/chat');
     xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
@@ -25,11 +30,14 @@ const Input = ({hideDisplay}) => {
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
       if (xhr.status === 200) {
+        props.hideDisplay()
+        setIsQuestion(false)
         setData(JSON.parse(xhr.responseText));
         var newQues = {
           "question": question,
           "answer" : JSON.parse(xhr.responseText)[0].answer
         }
+        makeAnswers(newQues)
         questions = {
           ...questions,
             "question" : [
@@ -51,11 +59,11 @@ const Input = ({hideDisplay}) => {
         <input
           type="text"
           placeholder="Ask your questions regarding gdsc here..."
-          className="md:flex-1  md:text-[16px] text-white p-[10px] md:max-w-[100%] max-w-[80%] text-[20px] md:text-[1.3rem] md:p-2 outline-none rounded-[158px] bg-[#1E1F20]"
+          className="md:flex-1  md:text-[16px] text-white p-[10px] md:max-w-[100%] max-w-[80%] text-[20px]  md:p-2 outline-none rounded-[158px] bg-[#1E1F20]"
           onChange={handleChange}
           value={question}
         />
-        <button 
+       {isQuestion ? <Loader/> :  <button 
           type="submit"
         >
         <svg
@@ -72,20 +80,12 @@ const Input = ({hideDisplay}) => {
             d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5"
           />
         </svg>
-        </button>
+        </button>}
       </div>
       </form>
      </div>
 
-     
-      {questions.question.map((elem, i) => {                     
-        return (
-        <div class="text-white">
-          <p>Question : {elem.question}</p>
-          <p>Answer : {elem.answer}</p>
-        </div>
-        ) 
-     })}
+  
      
      
     </>

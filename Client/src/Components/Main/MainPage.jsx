@@ -2,18 +2,19 @@ import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import Display from "../Display/Display";
 import Input from "../Input/Input";
+import AllAnswers from "../Answers/answers";
 const Main = () => {
-  const [showDisplay, setShowDisplay] = React.useState(false)
+  const [showDisplay, setShowDisplay] = useState(true)
 
-  const hideDisplay = () => {
-    setShowDisplay(true);
-  }
+ const hide = ()=>{
+  setShowDisplay(false)
+ }
 
   return (
     <>
     <Header/>
-    { showDisplay ? null : <Display />}
-    <Input setShowDisplay={setShowDisplay}/>
+    {showDisplay ? <Display/> : <AllAnswers/>}
+    <Input hideDisplay={hide}/>
     </>
   );
 };
