@@ -13,7 +13,7 @@ const Main = () => {
   return (
     <>
     <Header/>
-    {showDisplay ? <Display/> : <AllAnswers/>}
+    {showDisplay ? <Display hideDisplay={hide}/> : <AllAnswers/>}
     <Input hideDisplay={hide}/>
     </>
   );
