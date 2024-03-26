@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { QuestionContext } from "../Context/answersContext";
+import axios from "axios";
 import Loader from "../LoaderComp";
 var questions = {
   question: [],
@@ -13,36 +14,49 @@ const Input = (props) => {
     setQuestion(event.target.value);
   };
 
+  const GetAns = async () => {
+    console.log("ijihi")
+    try {
+      const response = await axios.post(
+        'http://ec2-54-224-160-36.compute-1.amazonaws.com/chat',
+        { question: question },
+        {
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Authorization': 'Bearer 2f74125481df4c363cce3fa358933fba',
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+      
+      props.hideDisplay();
+      setIsQuestion(false);
+      setData(response.data);
+      
+      const newQues = {
+        question: question,
+        answer: response.data[0].answer
+      };
+      
+      makeAnswers(newQues);
+      
+      questions = {
+        ...questions,
+        question: [...questions.question, newQues]
+      };
+      
+      setQuestion('');
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+
   const handleSubmit = (event) => {
     setIsQuestion(true);
     event.preventDefault();
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://ec2-54-224-160-36.compute-1.amazonaws.com/chat");
-    xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-    xhr.setRequestHeader(
-      "Authorization",
-      "Bearer 2f74125481df4c363cce3fa358933fba"
-    );
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onload = function () {
-      if (xhr.status === 200) {
-        props.hideDisplay();
-        setIsQuestion(false);
-        setData(JSON.parse(xhr.responseText));
-        var newQues = {
-          question: question,
-          answer: JSON.parse(xhr.responseText)[0].answer,
-        };
-        makeAnswers(newQues);
-        questions = {
-          ...questions,
-          question: [...questions.question, newQues],
-        };
-        setQuestion("");
-      }
-    };
-
-    xhr.send(JSON.stringify({ question: question }));
+    console.log("hkk")
+    GetAns();
   };
 
   return (
