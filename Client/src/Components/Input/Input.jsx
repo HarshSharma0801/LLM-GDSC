@@ -15,10 +15,9 @@ const Input = (props) => {
   };
 
   const GetAns = async () => {
-    console.log("ijihi")
     try {
       const response = await axios.post(
-        'http://ec2-54-224-160-36.compute-1.amazonaws.com/chat',
+        'https://jhvsq5i3ee.execute-api.us-east-1.amazonaws.com/prod/chat',
         { question: question },
         {
           headers: {
