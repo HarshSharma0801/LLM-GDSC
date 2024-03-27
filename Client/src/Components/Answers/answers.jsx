@@ -8,7 +8,8 @@ const AllAnswers = () => {
   return (
     <>
       <div className="hidden md:flex md:w-[100%] px-40 py-8 ">
-        <div className="flex justify-center  md:max-h-[400px] overflow-y-auto items-center">
+        <div className="md:max-h-[400px] overflow-y-auto p-3">
+        <div className="flex justify-center   items-center">
           <div className="flex flex-col gap-4">
             {Answers.question.map((elem, i) => {
               return (
@@ -113,6 +114,8 @@ const AllAnswers = () => {
             })}
           </div>
         </div>
+        </div>
+        
       </div>
 
 
@@ -123,7 +126,8 @@ const AllAnswers = () => {
 
 
       <div className=" flex md:hidden w-[100%] px-4 py-2 ">
-        <div className="flex justify-center  max-h-[500px] overflow-y-auto items-center">
+        <div className="max-h-[450px] overflow-y-auto p-2">
+        <div className="flex justify-center   items-center">
           <div className="flex flex-col gap-4">
             {Answers.question.map((elem, i) => {
               return (
@@ -228,6 +232,8 @@ const AllAnswers = () => {
             })}
           </div>
         </div>
+        </div>
+      
       </div>
     </>
   );
