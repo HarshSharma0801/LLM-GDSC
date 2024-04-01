@@ -7,7 +7,7 @@ export const QuestionContext = React.createContext({
 
 export const QuestionContextProvider = ({ children }) => {
   const [Answers, setAnswers] = useState({
-    "question" : []
+    question: [],
   });
   const [question, setQuestion] = useState("");
   const [isQuestion, setIsQuestion] = useState(false);
@@ -16,14 +16,14 @@ export const QuestionContextProvider = ({ children }) => {
     const urlRegex = /https?:\/\/\S+/g;
 
     const modifiedSentence = sentence.replace(urlRegex, (url) => {
-        return `<a href="${url}" className="text-blue-500" target="_blank" rel="noopener noreferrer">${url}</a>`;
+      return `<a href="${url}" className="text-blue-500" target="_blank" rel="noopener noreferrer">${url}</a>`;
     });
 
     return modifiedSentence;
-}
+  }
   const makeAnswers = (data) => {
-    const Newdata = {...data,answer:wrapLinksWithATag(data.answer)}
-    console.log(Newdata)
+    const Newdata = { ...data, answer: wrapLinksWithATag(data.answer) };
+    console.log(Newdata);
     setAnswers((questions) => {
       return (questions = {
         ...questions,
@@ -33,7 +33,15 @@ export const QuestionContextProvider = ({ children }) => {
   };
 
   return (
-    <QuestionContext.Provider value={{Answers, makeAnswers , question, setQuestion ,isQuestion, setIsQuestion}}>
+    <QuestionContext.Provider
+      value={{
+        Answers,
+        makeAnswers,
+        question,
+        setQuestion,
+        isQuestion,
+        setIsQuestion,
+      }}>
       {children}
     </QuestionContext.Provider>
   );

@@ -1,21 +1,17 @@
-
-
-const Header = ()=>{
-
-return <>
-
-<div className="flex justify-between  items-center  w-[100%] text-white  p-4 px-6">
+const Header = () => {
+  return (
+    <>
+      <div className="flex justify-between  items-center  w-[100%] text-white  p-4 px-6">
         <div>
           <h1 className="md:text-3xl text-sm flex gap-2 cursor-pointer">
-          <div className="font-bold hidden md:block">
+            <div className="font-bold hidden md:block">
               <svg
                 width="350"
                 height="47"
                 viewBox="0 0 350 47"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="text-white"
-              >
+                className="text-white">
                 <rect
                   x="1.50085"
                   y="13.8091"
@@ -63,7 +59,6 @@ return <>
               </svg>
             </div>
 
-
             <div className="font-bold block  md:hidden">
               <svg
                 width="250"
@@ -71,8 +66,7 @@ return <>
                 viewBox="0 0 350 47"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="text-white"
-              >
+                className="text-white">
                 <rect
                   x="1.50085"
                   y="13.8091"
@@ -122,13 +116,12 @@ return <>
           </h1>
         </div>
 
-        <div className=" md:flex text-white justify-center rounded-2xl ">
+        <div className=" md:flex text-[#BDC1C5] justify-center rounded-2xl ">
           Zephyr
         </div>
       </div>
-</>
+    </>
+  );
+};
 
-}
-
-
-export default Header
+export default Header;

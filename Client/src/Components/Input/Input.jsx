@@ -17,44 +17,43 @@ const Input = (props) => {
   const GetAns = async () => {
     try {
       const response = await axios.post(
-        'https://jhvsq5i3ee.execute-api.us-east-1.amazonaws.com/prod/chat',
+        "https://jhvsq5i3ee.execute-api.us-east-1.amazonaws.com/prod/chat",
         { question: question },
         {
           headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Authorization': 'Bearer 2f74125481df4c363cce3fa358933fba',
-            'Content-Type': 'application/json'
-          }
+            "Access-Control-Allow-Origin": "*",
+            Authorization: "Bearer 2f74125481df4c363cce3fa358933fba",
+            "Content-Type": "application/json",
+          },
         }
       );
-      
+
       props.hideDisplay();
       setIsQuestion(false);
       setData(response.data);
-      
+
       const newQues = {
         question: question,
-        answer: response.data[0].answer
+        answer: response.data[0].answer,
       };
-      
+
       makeAnswers(newQues);
-      
+
       questions = {
         ...questions,
-        question: [...questions.question, newQues]
+        question: [...questions.question, newQues],
       };
-      
-      setQuestion('');
+
+      setQuestion("");
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
-
 
   const handleSubmit = (event) => {
     setIsQuestion(true);
     event.preventDefault();
-    console.log("hkk")
+    console.log("hkk");
     GetAns();
   };
 
@@ -80,8 +79,7 @@ const Input = (props) => {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-8 h-8 text-white cursor-pointer"
-                >
+                  className="w-8 h-8 text-white cursor-pointer">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -114,8 +112,7 @@ const Input = (props) => {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-8 h-8 text-white cursor-pointer"
-                >
+                  className="w-8 h-8 text-white cursor-pointer">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
