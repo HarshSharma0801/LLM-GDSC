@@ -7,7 +7,7 @@ const AllAnswers = () => {
   const { Answers } = useContext(QuestionContext);
   return (
     <>
-      <div className="hidden md:flex md:w-[100%] px-40 py-8 ">
+      <div className="hidden md:flex md:w-[100%] px-40 py-8 justify-center">
         <div className="md:max-h-[60vh] overflow-y-auto p-3 scrollable-div">
           <div className="flex justify-center items-center">
             <div className="flex flex-col gap-4">

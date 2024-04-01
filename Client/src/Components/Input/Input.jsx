@@ -59,7 +59,7 @@ const Input = (props) => {
 
   return (
     <>
-      <div className="w-[99vw] flex justify-center flex-col items-center mb-[50px] md:mb-[80px]">
+      <div className="w-[98vw] flex justify-center flex-col items-center mb-[50px] md:mb-[80px]">
         <form onSubmit={handleSubmit}>
           <div className="w-[90vw] md:w-[70vw] max-w-[769px] rounded-[158px] bg-[#1E1F20] pr-5 justify-start md:justify-between flex items-center ">
             <input
@@ -90,7 +90,7 @@ const Input = (props) => {
               </button>
             )}
           </div>
-          <p className="w-[90vw] md:w-[70vw] text-[10px] md:text-[14px] mt-[12px] max-w-[769px] text-center text-white px-3">
+          <p className="w-[90vw] md:w-[70vw] text-[10px] md:text-[14px] mt-[12px] max-w-[769px] text-center text-[#BDC1C5] px-3">
             Zephyr may display incorrect results regarding our club and it’s
             other details, so double check your responses with{" "}
             <a
