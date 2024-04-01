@@ -1,51 +1,52 @@
 import { Cards } from "./Cards";
 import { useContext } from "react";
 import { QuestionContext } from "../Context/answersContext";
-import axios from 'axios'
+import axios from "axios";
 var questions = {
   question: [],
 };
 
 const Display = (props) => {
-  const { makeAnswers , setIsQuestion , setQuestion} = useContext(QuestionContext);
+  const { makeAnswers, setIsQuestion, setQuestion } =
+    useContext(QuestionContext);
 
-const CardQuestion = (question)=>{
-GetAns(question)
-}
-const GetAns = async (question) => {
-  try {
-    const response = await axios.post(
-      'https://jhvsq5i3ee.execute-api.us-east-1.amazonaws.com/prod/chat',
-      { question: question },
-      {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Authorization': 'Bearer 2f74125481df4c363cce3fa358933fba',
-          'Content-Type': 'application/json'
+  const CardQuestion = (question) => {
+    GetAns(question);
+  };
+  const GetAns = async (question) => {
+    try {
+      const response = await axios.post(
+        "https://jhvsq5i3ee.execute-api.us-east-1.amazonaws.com/prod/chat",
+        { question: question },
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            Authorization: "Bearer 2f74125481df4c363cce3fa358933fba",
+            "Content-Type": "application/json",
+          },
         }
-      }
-    );
-    
-    props.hideDisplay();
-    setIsQuestion(false);
-    console.log(response.data)
-    const newQues = {
-      question: question,
-      answer: response.data[0].answer
-    };
-    
-    makeAnswers(newQues);
-    
-    questions = {
-      ...questions,
-      question: [...questions.question, newQues]
-    };
-    
-    setQuestion('');
-  } catch (error) {
-    console.error('Error:', error);
-  }
-};
+      );
+
+      props.hideDisplay();
+      setIsQuestion(false);
+      console.log(response.data);
+      const newQues = {
+        question: question,
+        answer: response.data[0].answer,
+      };
+
+      makeAnswers(newQues);
+
+      questions = {
+        ...questions,
+        question: [...questions.question, newQues],
+      };
+
+      setQuestion("");
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
   return (
     <>
@@ -69,12 +70,10 @@ const GetAns = async (question) => {
           </div>
 
           <div className="flex  gap-2 py-4">
-         <Cards  CardAns={CardQuestion}/>
+            <Cards CardAns={CardQuestion} />
           </div>
         </div>
       </div>
-
-
 
       <div className="w-[100%] h-[100%] justify-center flex  md:hidden py-10">
         <div className="justify-center  flex flex-col text-center">
@@ -96,7 +95,7 @@ const GetAns = async (question) => {
           </div>
 
           <div className="grid grid-cols-2 px-3 gap-2 py-4">
-         <Cards  CardAns={CardQuestion}/>
+            <Cards CardAns={CardQuestion} />
           </div>
         </div>
       </div>
