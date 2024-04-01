@@ -5,6 +5,11 @@ import parse from "html-react-parser";
 import profile from "../../assets/profile.svg";
 const AllAnswers = () => {
   const { Answers } = useContext(QuestionContext);
+  const parseAnswer = (answer) => {
+    const finalAnswer = answer.replace(/\n/g, "<br/>");
+    return <div dangerouslySetInnerHTML={{ __html: finalAnswer }} />;
+  };
+
   return (
     <>
       <div className="hidden md:flex md:w-[100%] px-40 py-8 justify-center">
@@ -107,7 +112,7 @@ const AllAnswers = () => {
                           </defs>
                         </svg>
                       </div>
-                      <div className="text-lg">{parse(elem.answer)}</div>
+                      <div className="text-lg">{parseAnswer(elem.answer)}</div>
                     </div>
                   </div>
                 );
@@ -218,7 +223,7 @@ const AllAnswers = () => {
                         </svg>
                       </div>
                       <div className="md:text-lg text-sm">
-                        {parse(elem.answer)}
+                        {parseAnswer(elem.answer)}
                       </div>
                     </div>
                   </div>
