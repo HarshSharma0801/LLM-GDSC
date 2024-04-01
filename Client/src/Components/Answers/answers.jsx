@@ -1,5 +1,5 @@
 import { QuestionContext } from "../Context/answersContext";
-import { useState, useContext } from "react";
+import { useContext, useRef } from "react";
 import parse from "html-react-parser";
 
 import profile from "../../assets/profile.svg";
@@ -8,8 +8,8 @@ const AllAnswers = () => {
   return (
     <>
       <div className="hidden md:flex md:w-[100%] px-40 py-8 ">
-        <div className="md:max-h-[400px] overflow-y-auto p-3">
-          <div className="flex justify-center   items-center">
+        <div className="md:max-h-[60vh] overflow-y-auto p-3 scrollable-div">
+          <div className="flex justify-center items-center">
             <div className="flex flex-col gap-4">
               {Answers.question.map((elem, i) => {
                 return (
@@ -32,7 +32,8 @@ const AllAnswers = () => {
                           height="44"
                           viewBox="0 0 44 44"
                           fill="none"
-                          xmlns="http://www.w3.org/2000/svg">
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
                           <rect width="44" height="44" rx="22" fill="#131314" />
                           <rect
                             x="3.97852"
@@ -85,7 +86,8 @@ const AllAnswers = () => {
                               y1="18.1111"
                               x2="41"
                               y2="18.1111"
-                              gradientUnits="userSpaceOnUse">
+                              gradientUnits="userSpaceOnUse"
+                            >
                               <stop stop-color="#A071C4" />
                               <stop offset="0.5" stop-color="#CB6885" />
                               <stop offset="1" stop-color="#D76471" />
@@ -96,7 +98,8 @@ const AllAnswers = () => {
                               y1="18.1111"
                               x2="41"
                               y2="18.1111"
-                              gradientUnits="userSpaceOnUse">
+                              gradientUnits="userSpaceOnUse"
+                            >
                               <stop stop-color="#A071C4" />
                               <stop offset="0.5" stop-color="#CB6885" />
                               <stop offset="1" stop-color="#D76471" />
@@ -115,7 +118,7 @@ const AllAnswers = () => {
       </div>
 
       <div className=" flex md:hidden w-[100%] px-4 py-2 ">
-        <div className="max-h-[450px] overflow-y-auto p-2">
+        <div className="max-h-[70vh] overflow-y-auto p-2">
           <div className="flex justify-center   items-center">
             <div className="flex flex-col gap-4">
               {Answers.question.map((elem, i) => {
@@ -139,7 +142,8 @@ const AllAnswers = () => {
                           height="24"
                           viewBox="0 0 44 44"
                           fill="none"
-                          xmlns="http://www.w3.org/2000/svg">
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
                           <rect width="44" height="44" rx="22" fill="#131314" />
                           <rect
                             x="3.97852"
@@ -192,7 +196,8 @@ const AllAnswers = () => {
                               y1="18.1111"
                               x2="41"
                               y2="18.1111"
-                              gradientUnits="userSpaceOnUse">
+                              gradientUnits="userSpaceOnUse"
+                            >
                               <stop stop-color="#A071C4" />
                               <stop offset="0.5" stop-color="#CB6885" />
                               <stop offset="1" stop-color="#D76471" />
@@ -203,7 +208,8 @@ const AllAnswers = () => {
                               y1="18.1111"
                               x2="41"
                               y2="18.1111"
-                              gradientUnits="userSpaceOnUse">
+                              gradientUnits="userSpaceOnUse"
+                            >
                               <stop stop-color="#A071C4" />
                               <stop offset="0.5" stop-color="#CB6885" />
                               <stop offset="1" stop-color="#D76471" />
