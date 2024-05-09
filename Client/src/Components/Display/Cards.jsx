@@ -46,12 +46,12 @@ export const Cards = ({ CardAns }) => {
 
       <div
         onClick={() => {
-          getAns("Tell me about the members of GDSC");
+          getAns("Who is GDSC Lead?");
         }}
         className="bg-[#1E1F20] p-[16px] hover:bg-[#333537] flex cursor-pointer flex-col justify-between text-white text-sm md:w-[195px] md:h-[195px] w-[165px] h-[165px] text-left rounded-[12px]"
       >
         <div className="text-[16px] md:text-[18px]">
-          Tell me about the members of GDSC
+          Who is GDSC Lead?
         </div>
         <div className="flex flex-row-reverse">
           <div className="p-1 w-[32px] h-[32px] rounded-full bg-[#48F08B] flex justify-center">
