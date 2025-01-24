@@ -59,7 +59,7 @@ const Input = (props) => {
 
   return (
     <>
-      <div className="w-[98vw] flex justify-center flex-col items-center mb-[50px] md:mb-[80px]">
+      <div className="w-[98vw] flex justify-center flex-col items-center mb-[50px] md:mb-[80px] fixed bottom-0 z-10">
         <form onSubmit={handleSubmit}>
           <div className="w-[90vw] md:w-[70vw] max-w-[769px] rounded-[158px] bg-[#1E1F20] pr-5 justify-start md:justify-between flex items-center ">
             <input
@@ -72,27 +72,25 @@ const Input = (props) => {
             {isQuestion ? (
               <Loader />
             ) : (
-              <button type="submit">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-8 h-8 text-white cursor-pointer"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
+              <button type="submit" 
+              className={`relative flex items-center justify-center ${question.trim().length > 0 ? 'opacity-100 cursor-pointer' : 'opacity-20 '}`}
+              >
+                <div className="w-[44px] h-[44px] relative">
+                  <div className="absolute inset-0 rounded-full bg-white"></div>
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#3D87FF] to-[#D0C3FF] opacity-0.7"></div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5.08594 12.6L11.9926 5.69336L18.8992 12.6" stroke="#191A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M12 19.5066V5.69336" stroke="#191A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                </div>
+                
               </button>
             )}
           </div>
           <p className="w-[90vw] md:w-[70vw] text-[10px] md:text-[14px] mt-[12px] max-w-[769px] text-center text-[#BDC1C5] px-3">
-            Zephyr may display incorrect results regarding our club and it’s
-            other details, so double check your responses with{" "}
+          Zephyr may show incorrect details: confirm with{" "}
             <a
               href="https://www.instagram.com/gdscjssaten/"
               className="text-[#444CE7]"
@@ -102,40 +100,6 @@ const Input = (props) => {
           </p>
         </form>
       </div>
-
-      {/* <div className="flex md:hidden justify-center items-center py-5">
-        <form onSubmit={handleSubmit}>
-          <div className="md:hidden flex-[0.1] rounded-2xl md:max-w-[100%] max-w-[95%] bg-[#1E1F20] md:p-1 md:pr-5 px-3 justify-between flex items-center ">
-            <input
-              type="text"
-              placeholder="type something .."
-              className="md:flex-1 h-[68px] p-[24px] md:text-2xl text-white md:max-w-[100%] max-w-[80%] text-[16px] md:text-[1.3rem] md:p-2 outline-none bg-[#1E1F20]"
-              onChange={handleChange}
-              value={question}
-            />
-            {isQuestion ? (
-              <Loader />
-            ) : (
-              <button type="submit">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-8 h-8 text-white cursor-pointer"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-              </button>
-            )}
-          </div>
-        </form>
-      </div> */}
     </>
   );
 };

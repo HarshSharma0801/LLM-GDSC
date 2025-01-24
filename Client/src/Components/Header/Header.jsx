@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <>
-      <div className="flex justify-between  items-center  w-[100%] text-white  p-4 px-6">
+      <div className="flex justify-between  items-center  w-[100%] h-24 text-white  p-4 px-6">
         <div>
           <h1 className="md:text-3xl text-sm flex gap-2 cursor-pointer">
             <div className="font-bold hidden md:block">
@@ -116,7 +116,7 @@ const Header = () => {
           </h1>
         </div>
 
-        <div className=" md:flex text-[#BDC1C5] justify-center rounded-2xl ">
+        <div className="pl-3 md:flex text-[#BDC1C5] justify-center rounded-2xl ">
           Zephyr
         </div>
       </div>
