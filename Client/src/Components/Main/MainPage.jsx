@@ -11,15 +11,27 @@ const Main = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen justify-between">
-      <div>
-        <Header />
-        {showDisplay ? <Display hideDisplay={hide} /> : <AllAnswers />}
-      </div>
-      <div>
-        <Input hideDisplay={hide} />
-      </div>
+    <div className="relative h-screen">
+  <div className="absolute inset-0"
+    style={{
+      backgroundImage: 'url("/image.png")', 
+      backgroundSize: 'cover',
+      backgroundRepeat: 'repeat',
+      backgroundPosition: 'center',
+      opacity:0.2,
+    }}
+  />
+  <div className="absolute inset-0 bg-black/50 " />
+  <div className="flex flex-col h-full justify-between relative z-10">
+    <div>
+      <Header />
+      {showDisplay ? <Display hideDisplay={hide} /> : <AllAnswers />}
     </div>
+    <div>
+      <Input hideDisplay={hide} />
+    </div>
+  </div>
+</div>
   );
 };
 
