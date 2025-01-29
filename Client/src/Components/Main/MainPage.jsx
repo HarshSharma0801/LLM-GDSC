@@ -12,13 +12,9 @@ const Main = () => {
 
   return (
     <div className="relative h-screen">
-  <div className="absolute inset-0"
+  <div className="absolute inset-0 opacity-40"
     style={{
       backgroundImage: 'url("/image.png")', 
-      backgroundSize: 'cover',
-      backgroundRepeat: 'repeat',
-      backgroundPosition: 'center',
-      opacity:0.2,
     }}
   />
   <div className="absolute inset-0 bg-black/50 " />
