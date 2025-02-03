@@ -62,7 +62,7 @@ const Display = (props) => {
           <div className="flex flex-col justify-start gap-1">
             <div className="flex justify-center ">
              
-                <h1 className="text-4xl w-[680px] h-[44px] pb-14 text-[#FFFFFF] font-bold tracking-wide font-product-sans" >
+                <h1 className="text-4xl w-[680px] h-[44px] pb-14 text-[#FFFFFF] font-bold tracking-wide " >
                   What do you want to know?
                 </h1>
               
@@ -81,7 +81,7 @@ const Display = (props) => {
           <div className="flex flex-col justify-start gap-1 p-2 px-6 ">
             <div className="flex justify-center">
               <div>
-                <h1 className="md:text-[44px] text-[23px] text-white font-[700] font-product-sans">
+                <h1 className="md:text-[44px] text-[23px] text-white font-[700] ">
                   What do you want to know?
                 </h1>
               </div>

@@ -43,7 +43,7 @@ export const Cards = ({ CardAns }) => {
 {cards.map((card, index) => (
   <div 
   key={index}
-    className=" w-[155px] h-[155px] rounded-[12px] p-[2px]  group font-product-sans"
+    className=" w-[155px] h-[155px] rounded-[12px] p-[2px] group "
     style={{
       background: 'linear-gradient(133.66deg, #888888 -10.53%, #171717 100%)',
     }}

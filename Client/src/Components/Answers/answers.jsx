@@ -12,7 +12,7 @@ const AllAnswers = () => {
   };
 
   return (
-    <div className="w-full overflow-x-hidden font-product-sans">
+    <div className="w-full overflow-x-hidden ">
     <div className=" flex flex-col h-[calc(100vh-250px)] ">
       
       <div className=" overflow-y-auto scrollbar-none ">
