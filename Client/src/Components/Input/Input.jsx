@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { ArrowUp,CircleAlert } from 'lucide-react';
 import { QuestionContext } from "../Context/answersContext";
 import axios from "axios";
 import Loader from "../LoaderComp";
@@ -59,7 +60,7 @@ const Input = (props) => {
 
   return (
     <>
-      <div className="w-[98vw] flex justify-center flex-col items-center mb-[50px] md:mb-[80px] fixed bottom-0 z-10">
+      <div className="w-[98vw] flex justify-center flex-col items-center mb-[50px] md:mb-[80px]  fixed bottom-0 z-10">
         <form onSubmit={handleSubmit}>
           <div className="w-[90vw] md:w-[70vw] max-w-[769px] rounded-[158px] bg-[#1E1F20] pr-5 justify-start md:justify-between flex items-center ">
             <input
@@ -75,14 +76,12 @@ const Input = (props) => {
               <button type="submit" 
               className={`relative flex items-center justify-center ${question.trim().length > 0 ? 'opacity-100 cursor-pointer' : 'opacity-20 '}`}
               >
-                <div className="w-[44px] h-[44px] relative">
-                  <div className="absolute inset-0 rounded-full bg-white"></div>
+                <div className="w-[44px] h-[44px] ">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#3D87FF] to-[#D0C3FF] opacity-0.7"></div>
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M5.08594 12.6L11.9926 5.69336L18.8992 12.6" stroke="#191A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      <path d="M12 19.5066V5.69336" stroke="#191A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
+                  
+                    <ArrowUp/>
+                   
                   </div>
                 </div>
                 
@@ -90,14 +89,18 @@ const Input = (props) => {
             )}
           </div>
           <p className="w-[90vw] md:w-[70vw] text-[10px] md:text-[14px] mt-[12px] max-w-[769px] text-center text-[#BDC1C5] px-3">
+            <span className="inline-flex items-center gap-1">
+              <CircleAlert className="sm:mr-2 " />
           Zephyr may show incorrect details: confirm with{" "}
             <a
               href="https://www.instagram.com/gdscjssaten/"
-              className="text-[#444CE7]"
+              className="text-[#80B0FF]"
             >
               our team
             </a>
+            </span>
           </p>
+          
         </form>
       </div>
     </>
